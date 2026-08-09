@@ -1,8 +1,8 @@
-# Hi 👋, I'm Hưng Cube
+# Hi 👋, I'm Cubux
 
 ### Coder and Cuber
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=hungdev123&label=Profile views&color=0e75b6&style=flat" alt="hungdev123" /> </p>
+
 
 - 🌱 I'm currently learning **Linux**
 
