@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunggg</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home" class="active" aria-current="page">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-tools">
+            <div class="music-player" aria-label="Trình phát nhạc">
+                <button class="music-toggle" id="music-toggle" type="button" aria-label="Phát nhạc" title="Phát nhạc">▶</button>
+                <div class="music-meta" aria-live="polite">
+                    <span class="music-title">Golden Hour — JVKE</span>
+                    <span class="music-status" id="music-status">Đang tạm dừng</span>
+                </div>
+                <span class="music-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <audio id="site-music" src="JVKE%20-%20Golden%20Hour.mp3" loop preload="none"></audio>
+            </div>
+            <button class="blur-toggle" id="blur-toggle" type="button" aria-pressed="false" title="Tắt hiệu ứng làm mờ">Lag?</button>
+        </div>
+    </nav>
+    <div class="video-container">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="wallpaper.mp4" type="video/mp4">
+            Trình duyệt không hiển thị video.
+        </video>
+    </div>
+    <canvas class="audio-visualizer" id="audio-visualizer" aria-hidden="true"></canvas>
+
+    <main class="bio" id="tab-content">
+        <section class="tab-panel home-panel" id="home" aria-label="Home">
+            <section class="widget intro">
+                <p class="intro-label">Rất vui được gặp bạn</p>
+                <h1 class="Title">Xin chào,<br>mình là <span>Hưng</span></h1>
+                <p class="intro-text">Mình chuyên Tin, một học sinh cấp 2</p>
+                <a class="intro-link" href="mailto:hungdev1405@gmail.com">Liên hệ với mình</a>
+            </section>
+            <section class="widget interests" aria-labelledby="interests-title">
+                <p class="intro-label">Một chút về mình</p>
+                <h2 id="interests-title">Điều mình yêu thích</h2>
+                <ul>
+                    <li><span>01</span> Rubik</li>
+                    <li><span>02</span> Võ thuật Taekwondo</li>
+                    <li><span>03</span> Lập trình</li>
+                </ul>
+            </section>
+        </section>
+        <section class="tab-panel single-panel" id="about" aria-label="About" hidden>
+            <article class="widget detail-widget">
+                <h1 class="Title">Một chút về <span>mình</span></h1>
+                <p class="intro-text">Mình có biệt danh là Hunggg, là học sinh cấp 2, sinh sống ở Lâm Đồng.</p>
+                <p class="intro-text"></p>
+            </article>
+            <article class="widget detail-widget social-widget">
+                <p class="intro-label">Connect</p>
+                <h2>Kết nối với mình</h2>
+                <div class="social-list">
+                    <a href="mailto:hungdev1405@gmail.com"><span>Email</span><span>hungdev1405@gmail.com</span><b aria-hidden="true">↗</b></a>
+                    <a href="https://github.com/hungdev123" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span>hungdev123</span><b aria-hidden="true">↗</b></a>
+                    <a href="https://www.tiktok.com/@hung_0d" target="_blank" rel="noopener noreferrer"><span>TikTok</span><span>@hung_0d</span><b aria-hidden="true">↗</b></a>
+                    <a href="https://discord.com/users/atocarbon" target="_blank" rel="noopener noreferrer"><span>Discord</span><span>atocarbon</span><b aria-hidden="true">↗</b></a>
+                </div>
+            </article>
+        </section>
+        <section class="tab-panel single-panel" id="contact" aria-label="Contact" hidden>
+            <article class="widget contact-intro">
+                <p class="intro-label"><span class="contact-status"></span> Contact</p>
+                <h1 class="Title">Có điều gì muốn <span>chia sẻ?</span></h1>
+                <p class="intro-text">Gửi tin nhắn cho mình nhé. Mình sẽ phản hồi sớm nhất có thể.</p>
+                <a class="contact-email" href="mailto:hungdev1405@gmail.com">hungdev1405@gmail.com <span aria-hidden="true">↗</span></a>
+                <span class="contact-decoration" aria-hidden="true">✳</span>
+            </article>
+            <article class="widget contact-widget">
+                <form action="https://formspree.io/f/xyzwznnl" method="POST">
+                    <label for="contact-email">Email của bạn</label>
+                    <input id="contact-email" type="email" name="email" autocomplete="email" placeholder="ban@example.com" required>
+                    <label for="contact-message">Tin nhắn</label>
+                    <textarea id="contact-message" name="message" placeholder="Bạn muốn nhắn gì với mình?" required></textarea>
+                    <button type="submit">Gửi tin nhắn <span aria-hidden="true">↗</span></button>
+                </form>
+            </article>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
