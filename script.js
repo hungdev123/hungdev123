@@ -24,7 +24,31 @@ function resizeVisualizer() {
     visualizerContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 }
 
-resizeVisualizer();
+resizeVisualizer();if (!sessionStorage.getItem("reloadCount")) {
+            sessionStorage.setItem("reloadCount", "0");
+        }
+
+        // Lấy số lần reload hiện tại
+        let count = parseInt(sessionStorage.getItem("reloadCount"));
+
+        // Hiển thị trạng thái lên màn hình cho dễ theo dõi
+        const statusDiv = document.getElementById("status");
+
+        if (count < 3) {
+            count++;
+            sessionStorage.setItem("reloadCount", count);
+            statusDiv.innerHTML = `Đang tải lại lần thứ <b>${count}/3</b> sau 3 giây...`;
+
+            // Tự động reload sau 3 giây (3000 mili-giây)
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000);
+        } else {
+            statusDiv.innerHTML = "<b>Đã hoàn thành 3 lần reload. Dừng lại!</b>";
+            
+            // Xóa bộ đếm để nếu người dùng chủ động F5 bằng tay, chu kỳ 3 lần sẽ được tính lại từ đầu
+            sessionStorage.removeItem("reloadCount");
+        }
 window.addEventListener('resize', resizeVisualizer);
 
 function prepareVisualizer() {
@@ -201,3 +225,21 @@ tabLinks.forEach((link) => {
 
 const initialTab = location.hash.slice(1);
 if (document.getElementById(initialTab)?.classList.contains('tab-panel')) showTab(initialTab);
+
+if (!sessionStorage.getItem("reloadCount")) {
+            sessionStorage.setItem("reloadCount", "0");
+        }
+
+let count = parseInt(sessionStorage.getItem("reloadCount"));
+const statusDiv = document.getElementById("status");
+
+if (count < 3) {
+    count++;
+    sessionStorage.setItem("reloadCount", count);
+
+    setTimeout(() => {
+        window.location.reload();
+    }, 3000);
+} else {
+    sessionStorage.removeItem("reloadCount");
+}
